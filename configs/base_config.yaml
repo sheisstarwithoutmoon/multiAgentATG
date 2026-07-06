@@ -1,5 +1,5 @@
 # Unified Swarm Model execution constants
-model_name: TechFly/Meta-Llama-3-8B-Instruct-AWQ
+model_name: casperhansen/llama-3-8b-instruct-awq
 temperature: 0.3
 max_turns: 6
 

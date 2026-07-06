@@ -14,7 +14,7 @@ class ModelSwarmNodes:
     - JudgeNode: Compiles and aggregates consensus final verification.
     """
     
-    def __init__(self, model_name: str = "TechFly/Meta-Llama-3-8B-Instruct-AWQ", temperature: float = 0.3):
+    def __init__(self, model_name: str = "casperhansen/llama-3-8b-instruct-awq", temperature: float = 0.3):
         # Initialize ChatOpenAI client with logprobs enabled
         self.llm = ChatOpenAI(
             model=model_name,

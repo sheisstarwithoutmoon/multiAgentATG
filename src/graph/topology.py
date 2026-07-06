@@ -16,7 +16,7 @@ load_dotenv()
 
 def get_vllm_client() -> ChatOpenAI:
     vllm_url = os.getenv("VLLM_BASE_URL", "http://localhost:8000/v1")
-    model_name = os.getenv("VLLM_MODEL_NAME", "TechFly/Meta-Llama-3-8B-Instruct-AWQ")
+    model_name = os.getenv("VLLM_MODEL_NAME", "casperhansen/llama-3-8b-instruct-awq")
     return ChatOpenAI(
         model=model_name,
         openai_api_key="local",

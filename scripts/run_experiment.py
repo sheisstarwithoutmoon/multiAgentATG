@@ -150,7 +150,7 @@ def main():
     else:
         # Load standard fallback runtime parameter overrides
         config = {
-            "model_name": "TechFly/Meta-Llama-3-8B-Instruct-AWQ",
+            "model_name": "casperhansen/llama-3-8b-instruct-awq",
             "temperature": 0.3,
             "max_turns": 6,
             "alpha": 0.85,
@@ -161,7 +161,7 @@ def main():
         }
         
     # Read environment configurations
-    model_name = os.getenv("VLLM_MODEL_NAME", config.get("model_name", "TechFly/Meta-Llama-3-8B-Instruct-AWQ"))
+    model_name = os.getenv("VLLM_MODEL_NAME", config.get("model_name", "casperhansen/llama-3-8b-instruct-awq"))
     config["model_name"] = model_name
     
     print(f"Loaded swarms configurations: {config}")

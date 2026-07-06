@@ -1,0 +1,8 @@
+# HaluEval specific configurations
+entropy_threshold: 0.50
+drift_threshold: 0.35
+alpha: 0.85
+isolation_threshold: 0.25
+max_turns: 6
+temperature: 0.6
+model_name: "gpt-4o-mini"

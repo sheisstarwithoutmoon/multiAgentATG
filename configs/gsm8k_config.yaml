@@ -1,0 +1,8 @@
+# GSM8K specific configurations
+entropy_threshold: 0.40
+drift_threshold: 0.25
+alpha: 0.80
+isolation_threshold: 0.30
+max_turns: 6
+temperature: 0.3
+model_name: "gpt-4o-mini"

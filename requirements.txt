@@ -1,0 +1,12 @@
+langgraph>=0.0.1
+langchain-core
+transformers>=4.40.0
+accelerate
+sentence-transformers
+torch
+numpy
+pyyaml
+scikit-learn
+pandas
+matplotlib
+datasets

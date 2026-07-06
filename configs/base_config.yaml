@@ -1,0 +1,8 @@
+# Base hyperparameters configuration
+entropy_threshold: 0.45      # Epistemic uncertainty cutoff (tau)
+drift_threshold: 0.28        # Cosine distance cutoff for semantic drift
+alpha: 0.85                  # Trust weight exponential damping coefficient
+isolation_threshold: 0.25    # Short-circuit cutoff weight for graph termination
+max_turns: 6
+temperature: 0.5
+model_name: "gpt-4o-mini"

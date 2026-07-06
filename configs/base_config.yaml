@@ -1,8 +1,11 @@
-# Base hyperparameters configuration
-entropy_threshold: 0.45      # Epistemic uncertainty cutoff (tau)
-drift_threshold: 0.28        # Cosine distance cutoff for semantic drift
-alpha: 0.85                  # Trust weight exponential damping coefficient
-isolation_threshold: 0.25    # Short-circuit cutoff weight for graph termination
+# Unified Swarm Model execution constants
+model_name: TechFly/Meta-Llama-3-8B-Instruct-AWQ
+temperature: 0.3
 max_turns: 6
-temperature: 0.5
-model_name: "gpt-4o-mini"
+
+alpha: 0.85
+beta: 0.10
+isolation_threshold: 0.25
+
+calibration_mode: dynamic_warmup
+calibration_size: 5

@@ -1,8 +1,13 @@
-# GSM8K specific configurations
-entropy_threshold: 0.40
-drift_threshold: 0.25
-alpha: 0.80
-isolation_threshold: 0.30
-max_turns: 6
+# GSM8K specific configuration
+model_name: TechFly/Meta-Llama-3-8B-Instruct-AWQ
 temperature: 0.3
-model_name: "gpt-4o-mini"
+max_turns: 6
+
+# Topology Physics Controls
+alpha: 0.80                  
+beta: 0.10                   
+isolation_threshold: 0.30    
+
+# Dynamic Threshold Configuration
+calibration_mode: dynamic_warmup
+calibration_size: 5

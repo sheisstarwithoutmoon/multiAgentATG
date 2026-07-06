@@ -1,8 +1,13 @@
-# HaluEval specific configurations
-entropy_threshold: 0.50
-drift_threshold: 0.35
-alpha: 0.85
-isolation_threshold: 0.25
-max_turns: 6
+# HaluEval specific configuration
+model_name: TechFly/Meta-Llama-3-8B-Instruct-AWQ
 temperature: 0.6
-model_name: "gpt-4o-mini"
+max_turns: 6
+
+# Topology Physics Controls
+alpha: 0.85                  
+beta: 0.10                   
+isolation_threshold: 0.25    
+
+# Dynamic Threshold Configuration
+calibration_mode: dynamic_warmup
+calibration_size: 5

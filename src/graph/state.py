@@ -1,11 +1,31 @@
-from typing import Dict, List, TypedDict
+import os
+from typing import TypedDict, List, Dict, Any
+from dotenv import load_dotenv
+
+# Initialize python-dotenv configuration
+load_dotenv()
 
 class AgentState(TypedDict):
-    query: str                       # Original dataset prompt question
-    ground_truth: str                # Gold standard truth evaluation string
-    current_turn: int                # Running tracking indicator for loops
-    max_turns: int                   # Bound iteration boundary ceiling
-    history: List[Dict[str, str]]    # Shared dialog trail context window
-    metrics: List[Dict]              # High-precision performance logs
-    trust_scores: Dict[str, float]   # Graph adjacency mapping scores
-    calibration_bounds: Dict[str, float] # Dynamically calculated threshold limits
+    """
+    TypedDict representing the unified graph state for the ATG topology controller.
+    
+    Attributes:
+        query: The input prompt/problem statement (potentially mutated).
+        ground_truth: The gold-standard response for validation.
+        current_turn: Integer tracker for the current iteration loop.
+        max_turns: Upper bound turn limit.
+        history: Structured dialogue log containing role-based interaction text.
+        metrics: List of telemetry dictionaries tracking node performance metrics.
+        trust_scores: Active edge weight mappings (e.g., 'generator->critic').
+        calibration_bounds: Dynamically determined statistical thresholds for entropy/drift.
+        configuration: Evaluator hyperparameter thresholds and settings.
+    """
+    query: str
+    ground_truth: str
+    current_turn: int
+    max_turns: int
+    history: List[Dict[str, str]]
+    metrics: List[Dict[str, Any]]
+    trust_scores: Dict[str, float]
+    calibration_bounds: Dict[str, float]
+    configuration: Dict[str, Any]

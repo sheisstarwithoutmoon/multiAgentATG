@@ -1,12 +1,24 @@
-langgraph>=0.0.1
-langchain-core
-transformers>=4.40.0
-accelerate
-sentence-transformers
-torch
-numpy
-pyyaml
-scikit-learn
-pandas
-matplotlib
-datasets
+# ── Direct imports in src/ ────────────────────────────────────────────────────
+langgraph>=0.0.1            # src/graph/topology.py — StateGraph
+langchain-core              # src/graph/nodes.py, topology.py — Message types
+langchain-openai            # src/graph/topology.py — ChatOpenAI
+numpy                       # scripts/run_experiment.py, src/metrics/entropy.py
+pyyaml                      # scripts/run_experiment.py — config loading
+pandas                      # scripts/run_experiment.py, plot_results.py
+matplotlib                  # scripts/plot_results.py
+seaborn                     # scripts/plot_results.py
+datasets                    # src/data/loader.py — HuggingFace datasets
+python-dotenv               # src/graph/state.py, topology.py — load_dotenv
+
+# ── Transitive / runtime dependencies ────────────────────────────────────────
+sentence-transformers       # src/metrics/semantic.py — SentenceTransformer
+torch                       # Required by sentence-transformers at runtime
+transformers>=4.40.0        # Required by sentence-transformers at runtime
+accelerate                  # Required by transformers for device mapping
+
+# ── Phase 10+ dependencies (will be imported in future phases) ────────────────
+scikit-learn                # Phase 10: ECE, Brier Score (sklearn.calibration)
+
+# ── Development / testing ─────────────────────────────────────────────────────
+pytest                      # tests/
+pytest-cov                  # coverage reports

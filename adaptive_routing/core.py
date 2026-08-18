@@ -37,13 +37,23 @@ def _stub_generator(state: RoutingState) -> Dict[str, Any]:
     return {}
 
 def _stub_risk_gate(state: RoutingState) -> Dict[str, Any]:
+    """Risk Gate: deterministic, signal-based risk scoring.
+
+    Replaces the former random.uniform() stub. 
+    Delegates to the ``src.risk_gate`` module which computes a weighted score from
+    pre-computed RiskFeatures.
+
+    Currently no upstream component supplies real signals, so every
+    claim receives a deterministic score of 0.5 (MEDIUM) using the
+    neutral placeholder.  This is intentional — see
+    ``src/risk_gate/README.md`` for details.
+    """
+    from src.risk_gate import RiskGate
+
     print("[Node] Risk Gate calculating scores...")
     claims = state.get("claims", [])
-    risks = []
-    for claim in claims:
-        score = random.uniform(0, 1.0)
-        risks.append({"claim": claim, "score": score})
-    return {"claim_risks": risks}
+    gate = RiskGate()
+    return gate.assess_claims(claims)
 
 def _stub_agent_2(state: RoutingState) -> Dict[str, Any]:
     print("[Node] Agent 2 processing medium-risk claims...")

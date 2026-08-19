@@ -1,0 +1,18 @@
+# Adaptive Hallucination Containment (AHC) Configuration
+
+agents:
+  # Agent 1: Initial Answer & Claim Extraction (Strong general reasoning)
+  agent_1: "meta-llama/Llama-3.3-70B-Instruct"
+  
+  # Agent 2: Independent Solver / Recheck (Strong alternative model)
+  agent_2: "Qwen/Qwen2.5-72B-Instruct"
+  
+  # Agent 3: Verifier & Signal Evaluator (Fast, cheap, good at specific tasks)
+  agent_3: "meta-llama/Meta-Llama-3.1-8B-Instruct"
+  
+  # Agent 4: Final Adjudicator (Strong reasoning / consensus building)
+  agent_4: "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
+
+risk_gate:
+  alpha_1: 0.10
+  alpha_2: 0.66
